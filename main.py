@@ -51,6 +51,8 @@ columns.column(
 
 # ---- // Bot
 def start():
+    time.sleep(0.5) # wait some time for user to release keyToStartEnd key
+
     while True:
         # stop bot
         if keyboard.is_pressed(keyToStartEnd):
@@ -69,5 +71,7 @@ def start():
 # start on key press
 while True:
     if keyboard.is_pressed(keyToStartEnd):
+        print("started")
+
         start() # yield (pauses) the loop until the function is completed. this is because of the while loop up in the 'start' function
         break # end this loop if function above is finished
