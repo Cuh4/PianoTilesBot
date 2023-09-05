@@ -14,6 +14,9 @@ import keyboard
 
 import win32api, win32con, time # for clicking
 
+# ------------------- Variables
+keyToStartEnd = "q"
+
 # ------------------- Functions
 def click(pos: cuhUtils.vec.vector2):
     # get cursor in position
@@ -49,9 +52,9 @@ columns.column(
 # ---- // Bot
 def start():
     while True:
-        # fail-safe
-        if keyboard.is_pressed("q"):
-            return
+        # stop bot
+        if keyboard.is_pressed(keyToStartEnd):
+            return # stop the function, get gone
         
         # detection
         for column in columns.recognisedColumns:
@@ -65,6 +68,6 @@ def start():
         
 # start on key press
 while True:
-    if keyboard.is_pressed("e"):
-        start()
+    if keyboard.is_pressed(keyToStartEnd):
+        start() # yield (pauses) the loop until the function is completed. this is because of the while loop up in the 'start' function
         break # end this loop if function above is finished
