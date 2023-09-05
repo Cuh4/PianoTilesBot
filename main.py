@@ -1,6 +1,6 @@
 # --------------------------------------------
 # ---- // Piano Tiles Bot
-# Made by @cuh5_ (Discord)
+# Made by @cuh6_ (Discord)
 
 # Built for http://tanksw.com/piano-tiles/ (rush mode). Scroll to top of page with average zoom level.
 
