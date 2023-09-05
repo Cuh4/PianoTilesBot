@@ -18,7 +18,7 @@ import win32api, win32con, time # for clicking
 keyToStartEnd = "q"
 
 # ------------------- Functions
-def click(pos: cuhUtils.vec.vector2):
+def click(pos: cuhUtils.vec.vector2): # unused, using keybinds instead of clicking (faster, more accurate)
     # get cursor in position
     win32api.SetCursorPos((pos.x, pos.y))
 
@@ -56,6 +56,7 @@ def start():
     while True:
         # stop bot
         if keyboard.is_pressed(keyToStartEnd):
+            cuhUtils.logging.success("Stopped.")
             return # stop the function, get gone
         
         # detection
@@ -65,13 +66,15 @@ def start():
                 continue
             
             # tile is in position, so press key responsible for tile
+            cuhUtils.logging.info(f"Tile ({column.pos.x}, {column.pos.y}) in position, pressing '{column.key.upper()}'")
             pyautogui.press(column.key)
             # click(column.pos) # too slow
         
 # start on key press
+cuhUtils.logging.info(f"Process started, press '{keyToStartEnd}' to start.")
 while True:
     if keyboard.is_pressed(keyToStartEnd):
-        print("started")
+        cuhUtils.logging.success("Started.")
 
         start() # yield (pauses) the loop until the function is completed. this is because of the while loop up in the 'start' function
         break # end this loop if function above is finished
